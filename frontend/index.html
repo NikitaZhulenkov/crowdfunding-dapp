@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <title>Crowdfunding DApp</title> 
+        <style> 
+        body { font-family: Arial, sans-serif; margin: 20px; } 
+        input, button { margin: 5px; padding: 10px; } 
+        </style> 
+    </head> 
+    <body> 
+
+        <h1>My Crowdfunding Project</h1> 
+        <p>Goal: 1 ETH</p> 
+        <p>Deadline: in 30 days</p> 
+
+        <h2>Donate</h2> 
+        <input type="number" id="amount" placeholder="Amount in ETH" /> 
+        <button id="donateBtn">Donate</button> 
+
+        <h2>Donations</h2> 
+        <button id="loadDonations">Load Donations</button> 
+        <ul id="donationsList"></ul> 
+        
+        <script src="https://cdn.jsdelivr.net/gh/ethers-io/ethers.js/dist/ethers.min.js"></script> 
+        <script> const contractAddress = "0xb5E8ab8c3e222e81E9948bE90b1a447B624DEF4F"; 
+        const abi = [  ]; 
+        
+        const provider = new ethers.providers.Web3Provider(window.ethereum); 
+        let signer; 
+        
+        async function init() { 
+            await provider.send("eth_requestAccounts", []); 
+            signer = provider.getSigner(); 
+            
+            window.contract = new ethers.Contract(contractAddress, abi, signer); 
+        } 
+        
+        document.getElementById('donateBtn').onclick = async () => { 
+            const amountETH = document.getElementById('amount').value; 
+            const tx = await window.contract.donate({ value: ethers.utils.parseEther(amountETH) }); 
+            await tx.wait(); 
+            alert('Donation sent!'); 
+        }; 
+        
+        document.getElementById('loadDonations').onclick = async () => { 
+            const count = await window.contract.getDonationsCount(); 
+            const donations = await window.contract.getDonations(); 
+            
+            const list = document.getElementById('donationsList'); 
+            list.innerHTML = ''; 
+            donations.forEach(d => { 
+                const li = document.createElement('li'); 
+                li.innerText = `Donor: ${d.donor}, Amount: ${ethers.utils.formatEther(d.amount)} ETH, Time: ${new Date(d.timestamp * 1000).toLocaleString()}`; 
+                list.appendChild(li); 
+            }); 
+        }; 
+        
+        init(); 
+        </script> 
+    </body> 
+</html>
