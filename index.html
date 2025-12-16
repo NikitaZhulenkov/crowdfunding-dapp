@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crowdfunding dApp</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Crowdfunding</h1>
+    <button id="connectBtn">Подключить MetaMask</button>
+    
+    <div id="status"></div>
+    
+    <div class="funding-info">
+      <p>Цель сбора: <span id="goal">-</span> ETH</p>
+      <p>Собрано: <span id="raised">-</span> ETH</p>
+    </div>
+    
+    <div class="funding-actions">
+      <input type="number" id="amount" placeholder="Сумма ETH" />
+      <button id="fundBtn">Пожертвовать</button>
+    </div>
+    
+    <div class="owner-actions" style="display:none;">
+      <button id="claimBtn">Вывести средства</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
