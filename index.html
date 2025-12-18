@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Краудфандинг Проект</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+</head>
+<body>
+    <h1>Краудфандинг Проект</h1>
+
+    <div class="section">
+        <h2>Информация о проекте</h2>
+        <p><strong>Название проекта:</strong> <span id="projectName">Загрузка...</span></p>
+        <p><strong>Цель:</strong> <span id="goal">Загрузка...</span></p>
+        <p><strong>Общая сумма собрана:</strong> <span id="totalDonated">Загрузка...</span></p>
+        <p><strong>Дата окончания:</strong> <span id="deadline">Загрузка...</span></p>
+        <button id="loadInfo">Обновить информацию</button>
+    </div>
+
+    <div class="section">
+        <h2>Пожертвовать</h2>
+        <input type="number" id="donationAmount" placeholder="Сумма ETH" />
+        <button id="donateBtn">Пожертвовать</button>
+        <p id="donationStatus"></p>
+    </div>
+
+    <div class="section">
+        <h2>Административные функции</h2>
+        <button id="withdrawBtn">Вывести средства (только владелец)</button>
+        <p id="withdrawStatus"></p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
