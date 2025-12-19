@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Crowdfunding dApp</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Crowdfunding Project</h1>
+            <button id="connectBtn">Подключить MetaMask</button>
+            <div id="accountInfo"></div>
+            <div id="projectInfo">
+                <p><strong>Название:</strong> <span id="projectName"></span></p>
+                <p><strong>Цель:</strong> <span id="goal"></span></p>
+                <p><strong>Дедлайн:</strong> <span id="deadline"></span></p>
+                <p><strong>Собрано:</strong> <span id="totalDonated"></span></p>
+            </div>
+            <div>
+                <h2>Донат</h2>
+                <input type="number" id="donationAmount" placeholder="Amount in ETH" />
+                <button id="donateBtn">Пожертвовать</button>
+            </div>
+            <div>
+                <h2>История донатов</h2>
+                <button id="loadDonationsBtn">Загрузить список</button>
+                <ul id="donationsList"></ul>
+            </div>
+        </div>
+        
+        <script src="app.js"></script>
+    </body>
+</html>
