@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <title>Краудфандинг</title> 
+        <link rel="stylesheet" href="style.css"> 
+        <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+    </head> 
+    <body> 
+        <div class="container"> 
+            <h1>Краудфандинг Проект</h1> 
+            <div id="connection"> 
+                <button id="connectButton">Подключиться к MetaMask</button>
+            </div> 
+            <div id="projectInfo" style="display:none;"> 
+                <h2 id="projectName"></h2> 
+                <p>Цель: <span id="goal"></span> ETH</p> 
+                <p>Собрано: <span id="totalDonated"></span> ETH</p> 
+                <p>Время окончания: <span id="deadline"></span></p> 
+                <button id="donateButton">Донатить 1 ETH</button> 
+                <button id="refreshButton">Обновить донаты</button> 
+                <h3>История донатов:</h3> 
+                <ul id="donationList"></ul>
+            </div>
+        </div> 
+        <script src="app.js"></script>
+    </body>
+</html>
